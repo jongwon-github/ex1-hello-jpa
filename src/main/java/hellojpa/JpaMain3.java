@@ -36,9 +36,6 @@ public class JpaMain3 {
             em.persist(member2);
             System.out.println("==============================");
 
-            // 4. 변경 감지(dirty checking)
-            Member findMember2 = em.find(Member.class, 150L);
-
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
