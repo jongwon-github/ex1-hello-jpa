@@ -15,7 +15,15 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments" value="true"/>
-            <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
+            <!-- hibernate.hbm2ddl.auto -> create : 기존테이블 삭제 후 다시 생성(DROP + CREATE) -->
+            <!--
+                운영 장비에는 절대 create, create-drop, update 사용하면 안된다.
+                개발 초기 단계는 create 또는 update
+                테스트 서버는 update 또는 validate
+                스테이징과 운영 서버는 validate 또는 none
+                하지만 경험 상, 테스트와 스테이징, 운영 서버에는 가급적 사용하지 않는 것이 좋다
+             -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
         </properties>
     </persistence-unit>
 </persistence>
