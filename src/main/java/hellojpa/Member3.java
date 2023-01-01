@@ -21,7 +21,6 @@ public class Member3 {
 //    @Column(name = "TEAM_ID")
 //    private Long teamId;
 
-    // 양방향 연관관계
     @ManyToOne
     @JoinColumn(name = "TEAM_ID")
     private Team team;
